@@ -11,22 +11,14 @@ import { observer } from 'mobx-react'
  *
  * Component description here for TypeScript tips.
  */
-@observer
-export class ToDoCell extends React.Component<ToDoCellProps, null> {
-  render () {
-    // grab the props
-    const { preset = 'primary', style: styleOverride, todo, onToggle, ...rest } = this.props
+export const ToDoCell: React.FunctionComponent<ToDoCellProps> = observer(({ preset = 'primary', style: styleOverride, todo, onToggle, ...rest }) => {
+  const viewPresetToUse = viewPresets[preset] || viewPresets.primary
+  const viewStyle = { ...viewPresetToUse, ...styleOverride }
 
-    // assemble the style
-    const viewPresetToUse = viewPresets[preset] || viewPresets.primary
-
-    const viewStyle = { ...viewPresetToUse, ...styleOverride }
-
-    return (
-      <View style={viewStyle} {...rest} >
-        <Checkbox onToggle={onToggle} value={todo.isComplete} />
-        <Text text={todo.title} />
-      </View>
-    )
-  }
-}
+  return (
+    <View style={viewStyle} {...rest} >
+      <Checkbox onToggle={onToggle} value={todo.isComplete} />
+      <Text text={todo.title} />
+    </View>
+  )
+})
