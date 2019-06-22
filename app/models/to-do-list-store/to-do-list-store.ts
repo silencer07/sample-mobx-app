@@ -1,4 +1,4 @@
-import { types, getEnv, getRoot } from "mobx-state-tree"
+import { Instance, types, getEnv, getRoot } from "mobx-state-tree"
 import { ToDoModel, ToDo, ToDoSnapshot } from "../to-do/to-do"
 import { flow } from "mobx"
 import { Environment } from "../environment"
@@ -68,5 +68,4 @@ export const ToDoListStoreModel = types
     }),
   }))
 
-type ToDoStoreType = typeof ToDoListStoreModel.Type
-export interface ToDoStore extends ToDoStoreType {}
+export type ToDoStore = Instance<typeof  ToDoListStoreModel>

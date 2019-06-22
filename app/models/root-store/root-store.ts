@@ -2,7 +2,6 @@ import { Instance, SnapshotOut, types } from "mobx-state-tree"
 import { NavigationStoreModel } from "../../navigation/navigation-store"
 import { ToDoListStoreModel } from "../to-do-list-store/to-do-list-store"
 
-
 /**
  * An RootStore model.
  */

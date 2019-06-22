@@ -1,4 +1,4 @@
-import { types } from "mobx-state-tree"
+import { Instance, SnapshotOut, types } from "mobx-state-tree"
 
 /**
  * A TODO list item
@@ -34,7 +34,5 @@ export const ToDoModel = types
     },
   }))
 
-type ToDoType = typeof ToDoModel.Type
-export interface ToDo extends ToDoType {}
-type ToDoSnapshotType = typeof ToDoModel.SnapshotType
-export interface ToDoSnapshot extends ToDoSnapshotType {}
+export type ToDo = Instance<typeof ToDoModel>
+export type ToDoSnapshot  = SnapshotOut<typeof ToDoModel>
