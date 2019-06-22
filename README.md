@@ -1,4 +1,4 @@
-#  SampleMobx
+# SampleMobx
 
 [![CircleCI](https://circleci.com/gh/infinitered/ignite-bowser.svg?style=svg)](https://circleci.com/gh/infinitered/ignite-bowser)
 
@@ -85,6 +85,7 @@ app
 ├── app.tsx
 ├── environment-variables.ts
 ```
+
 **components**
 This is where your React components will live. Each component will have a directory containing the `.tsx` file, along with a story file, and optionally `.presets`, and `.props` files for larger components. The app will come with some commonly used components like Button.
 
@@ -112,16 +113,19 @@ This is a great place to put miscellaneous helpers and utilities. Things like da
 **app.tsx** This is the entry point to your app. This is where you will find the main App component which renders the rest of the application. This is also where you will specify whether you want to run the app in storybook mode.
 
 ### ./ignite directory
+
 The `ignite` directory stores all things Ignite, including CLI and boilerplate items. Here you will find generators, plugins and examples to help you get started with React Native.
 
 ### ./storybook directory
+
 This is where your stories will be registered and where the Storybook configs will live
 
 ### ./test directory
+
 This directory will hold your Jest configs and mocks, as well as your [storyshots](https://github.com/storybooks/storybook/tree/master/addons/storyshots) test file. This is a file that contains the snapshots of all your component storybooks.
 
-
 ## Running Storybook
+
 From the command line in your generated app's root directory, enter `yarn run storybook`
 This starts up the storybook server.
 

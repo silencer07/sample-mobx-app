@@ -1,25 +1,25 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
 
-import * as React from "react"
-import { storiesOf } from "@storybook/react-native"
-import { StoryScreen, Story, UseCase } from "../../../storybook/views"
-import { FormRow } from "./form-row"
-import { Text } from "../text"
-import { color } from "../../theme/color"
-import { ViewStyle } from "react-native"
+import * as React from 'react'
+import { storiesOf } from '@storybook/react-native'
+import { StoryScreen, Story, UseCase } from '../../../storybook/views'
+import { FormRow } from './form-row'
+import { Text } from '../text'
+import { color } from '../../theme/color'
+import { ViewStyle } from 'react-native'
 
 const TEXT_STYLE_OVERRIDE = {
-  color: color.storybookTextColor,
+  color: color.storybookTextColor
 }
 const arrayStyle: ViewStyle[] = [
-  {borderWidth: 5},
-  {borderColor: "#32cd32"},
+  { borderWidth: 5 },
+  { borderColor: '#32cd32' }
 ]
 
-storiesOf("FormRow", module)
+storiesOf('FormRow', module)
   .addDecorator(fn => <StoryScreen>{fn()}</StoryScreen>)
-  .add("Assembled", () => (
+  .add('Assembled', () => (
     <Story>
       <UseCase
         text="Fully Assembled"
@@ -52,13 +52,13 @@ storiesOf("FormRow", module)
         <FormRow preset="soloRound">
           <Text style={TEXT_STYLE_OVERRIDE}>I'm round</Text>
         </FormRow>
-        <FormRow preset="soloStraight" style={{ marginTop: 10, backgroundColor: "#ffe" }}>
+        <FormRow preset="soloStraight" style={{ marginTop: 10, backgroundColor: '#ffe' }}>
           <Text style={TEXT_STYLE_OVERRIDE}>I'm square and have a custom style.</Text>
         </FormRow>
       </UseCase>
     </Story>
   ))
-  .add("Presets", () => (
+  .add('Presets', () => (
     <Story>
       <UseCase text="top" usage="The top of a form.">
         <FormRow preset="top">
@@ -94,7 +94,7 @@ storiesOf("FormRow", module)
       </UseCase>
     </Story>
   ))
-  .add("Styling", () => (
+  .add('Styling', () => (
     <Story>
       <UseCase text="Style array" usage="Form row with an array of styles">
         <FormRow preset="soloStraight" style={arrayStyle}>

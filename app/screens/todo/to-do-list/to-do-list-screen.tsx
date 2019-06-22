@@ -1,25 +1,25 @@
-import * as React from "react"
-import { observer, inject } from "mobx-react"
-import { FlatList, View, ViewStyle } from "react-native"
-import { Text } from "../../../components/text"
-import { NavigationScreenProps } from "react-navigation"
-import { Screen } from "../../../components/screen"
-import { ToDoStore } from "../../../models/to-do-list-store/to-do-list-store"
-import { ToDoCell } from "../to-do-cell"
-import { spacing } from "../../../theme"
-import { Wallpaper } from "../../../components/wallpaper"
-import { ToDo } from "../../../models/to-do/to-do"
+import * as React from 'react'
+import { observer, inject } from 'mobx-react'
+import { FlatList, View, ViewStyle } from 'react-native'
+import { Text } from '../../../components/text'
+import { NavigationScreenProps } from 'react-navigation'
+import { Screen } from '../../../components/screen'
+import { ToDoStore } from '../../../models/to-do-list-store/to-do-list-store'
+import { ToDoCell } from '../to-do-cell'
+import { spacing } from '../../../theme'
+import { Wallpaper } from '../../../components/wallpaper'
+import { ToDo } from '../../../models/to-do/to-do'
 
 export interface ToDoListScreenProps extends NavigationScreenProps<{}> {
-  toDoStore: ToDoStore
+  toDoStore: ToDoStore;
 }
 
 const HEADER: ViewStyle = {
   paddingVertical: 50,
-  paddingHorizontal: spacing[4],
+  paddingHorizontal: spacing[4]
 }
 
-@inject("toDoStore")
+@inject('toDoStore')
 @observer
 export class ToDoListScreen extends React.Component<ToDoListScreenProps, {}> {
   render () {

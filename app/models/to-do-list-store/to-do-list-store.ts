@@ -1,8 +1,8 @@
-import { Instance, types, getEnv, getRoot } from "mobx-state-tree"
-import { ToDoModel, ToDo, ToDoSnapshot } from "../to-do/to-do"
-import { flow } from "mobx"
-import { Environment } from "../environment"
-import { RootStore } from "../root-store"
+import { Instance, types, getEnv, getRoot } from 'mobx-state-tree'
+import { ToDoModel, ToDo, ToDoSnapshot } from '../to-do/to-do'
+import { flow } from 'mobx'
+import { Environment } from '../environment'
+import { RootStore } from '../root-store'
 
 /**
  * Store which holds the items found on the to-do-list screen
@@ -11,23 +11,23 @@ import { RootStore } from "../root-store"
  * as well as including as props in other `mobx-state-tree` models.
  */
 export const ToDoListStoreModel = types
-  .model("ToDoListStore")
+  .model('ToDoListStore')
   .props({
     /**
      * The status of the API request
      */
-    status: types.optional(types.enumeration([ "idle", "pending", "done", "error"]), "idle"),
+    status: types.optional(types.enumeration([ 'idle', 'pending', 'done', 'error']), 'idle'),
     /**
      * A list of TODOS
      */
-    todos: types.optional(types.array(ToDoModel), []),
+    todos: types.optional(types.array(ToDoModel), [])
   })
   // Setters
   .actions(self => ({
-    setStatus(value?:  "idle" | "pending" | "done" | "error") {
+    setStatus (value?: 'idle' | 'pending' | 'done' | 'error') {
       self.status = value
     },
-    setToDos(value: ToDo[] | ToDoSnapshot[]) {
+    setToDos (value: ToDo[] | ToDoSnapshot[]) {
       if (self.todos) {
         if (value) {
           self.todos.replace(value as any)
@@ -37,35 +37,35 @@ export const ToDoListStoreModel = types
       } else {
         self.todos = value as any
       }
-    },
+    }
   }))
   .views(self => ({
-    get environment() {
+    get environment () {
       return getEnv(self) as Environment
     },
-    get rootStore() {
+    get rootStore () {
       return getRoot(self) as RootStore
     },
-    get isLoading() {
-      return self.status === "pending"
-    },
+    get isLoading () {
+      return self.status === 'pending'
+    }
   }))
   .actions(self => ({
-    loadTodos: flow(function*() {
-      self.setStatus("pending")
+    loadTodos: flow(function * () {
+      self.setStatus('pending')
       try {
         const result = yield self.environment.todoApi.getTodos()
 
-        if (result.kind === "ok") {
+        if (result.kind === 'ok') {
           self.setToDos(result.todos)
-          self.setStatus("done")
+          self.setStatus('done')
         } else {
-          self.setStatus("error")
+          self.setStatus('error')
         }
       } catch {
-        self.setStatus("error")
+        self.setStatus('error')
       }
-    }),
+    })
   }))
 
-export type ToDoStore = Instance<typeof  ToDoListStoreModel>
+export type ToDoStore = Instance<typeof ToDoListStoreModel>

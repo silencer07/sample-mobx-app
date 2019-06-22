@@ -1,38 +1,38 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-native/no-color-literals */
 
-import * as React from "react"
-import { storiesOf } from "@storybook/react-native"
-import { StoryScreen, Story, UseCase } from "../../../storybook/views"
-import { Text } from "../text"
-import { TextField } from "./"
-import { State } from "react-powerplug"
-import { ViewStyle, TextStyle } from "react-native"
+import * as React from 'react'
+import { storiesOf } from '@storybook/react-native'
+import { StoryScreen, Story, UseCase } from '../../../storybook/views'
+import { Text } from '../text'
+import { TextField } from './'
+import { State } from 'react-powerplug'
+import { ViewStyle, TextStyle } from 'react-native'
 
 const styleArray: ViewStyle[] = [
-  {paddingHorizontal: 30},
-  {borderWidth: 30},
+  { paddingHorizontal: 30 },
+  { borderWidth: 30 }
 ]
 
 const inputStyleArray: TextStyle[] = [
   {
-    backgroundColor: "rebeccapurple",
-    color: "white",
-    padding: 40},
+    backgroundColor: 'rebeccapurple',
+    color: 'white',
+    padding: 40 },
   {
     borderWidth: 10,
     borderRadius: 4,
-    borderColor: "#7fff00",
-  },
+    borderColor: '#7fff00'
+  }
 ]
 var alertWhenFocused = true
 
-storiesOf("TextField", module)
+storiesOf('TextField', module)
   .addDecorator(fn => <StoryScreen>{fn()}</StoryScreen>)
-  .add("Labelling", () => (
+  .add('Labelling', () => (
     <Story>
       <UseCase text="Normal text" usage="Use placeholder and label to set the text.">
-        <State initial={{ value: "" }}>
+        <State initial={{ value: '' }}>
           {({ state, setState }) => (
             <TextField
               onChangeText={value => setState({ value })}
@@ -45,7 +45,7 @@ storiesOf("TextField", module)
       </UseCase>
 
       <UseCase text="i18n text" usage="Use placeholderTx and labelTx for i18n lookups">
-        <State initial={{ value: "" }}>
+        <State initial={{ value: '' }}>
           {({ state, setState }) => (
             <TextField
               onChangeText={value => setState({ value })}
@@ -58,14 +58,14 @@ storiesOf("TextField", module)
       </UseCase>
     </Story>
   ))
-  .add("Style Overrides", () => (
+  .add('Style Overrides', () => (
     <Story>
       <UseCase
         noPad
         text="Container Styles"
         usage="Useful for applying margins when laying out a form to remove padding if the form brings its own."
       >
-        <State initial={{ value: "Inigo" }}>
+        <State initial={{ value: 'Inigo' }}>
           {({ state, setState }) => (
             <TextField
               onChangeText={value => setState({ value })}
@@ -75,7 +75,7 @@ storiesOf("TextField", module)
             />
           )}
         </State>
-        <State initial={{ value: "Montoya" }}>
+        <State initial={{ value: 'Montoya' }}>
           {({ state, setState }) => (
             <TextField
               onChangeText={value => setState({ value })}
@@ -90,19 +90,19 @@ storiesOf("TextField", module)
         text="Input Styles"
         usage="Useful for 1-off exceptions.  Try to steer towards presets for this kind of thing."
       >
-        <State initial={{ value: "fancy colour" }}>
+        <State initial={{ value: 'fancy colour' }}>
           {({ state, setState }) => (
             <TextField
               onChangeText={value => setState({ value })}
               value={state.value}
               label="Name"
               inputStyle={{
-                backgroundColor: "rebeccapurple",
-                color: "white",
+                backgroundColor: 'rebeccapurple',
+                color: 'white',
                 padding: 40,
                 borderWidth: 10,
                 borderRadius: 4,
-                borderColor: "hotpink",
+                borderColor: 'hotpink'
               }}
             />
           )}
@@ -114,7 +114,7 @@ storiesOf("TextField", module)
         text="Style array"
         usage="Useful for 1-off exceptions, but using style arrays."
       >
-        <State initial={{ value: "fancy colour" }}>
+        <State initial={{ value: 'fancy colour' }}>
           {({ state, setState }) => (
             <TextField
               onChangeText={value => setState({ value })}
@@ -129,32 +129,32 @@ storiesOf("TextField", module)
       </UseCase>
     </Story>
   ))
-  .add("Ref Forwarding", () => (
+  .add('Ref Forwarding', () => (
     <Story>
       <UseCase
         text="Ref Forwarding"
         usage=""
       >
-        <State initial={{ value: "fancy colour" }}>
+        <State initial={{ value: 'fancy colour' }}>
           {({ state, setState }) => (
             <TextField
               onChangeText={value => setState({ value })}
               value={state.value}
               label="Name"
               inputStyle={{
-                backgroundColor: "rebeccapurple",
-                color: "white",
+                backgroundColor: 'rebeccapurple',
+                color: 'white',
                 padding: 40,
                 borderWidth: 10,
                 borderRadius: 4,
-                borderColor: "hotpink",
+                borderColor: 'hotpink'
               }}
               forwardedRef={ref => ref}
               onFocus={() => {
-                if(alertWhenFocused) {
+                if (alertWhenFocused) {
                   // Prevent text field focus from being repeatedly triggering alert
                   alertWhenFocused = false
-                  window.alert("Text field focuesed with forwarded ref!")
+                  window.alert('Text field focuesed with forwarded ref!')
                 }
               }}
             />

@@ -128,7 +128,8 @@ export class FirstExampleScreen extends React.Component<FirstExampleScreenProps,
               tx="firstExampleScreen.continue"
               onPress={this.nextScreen}
             />
-            <Button preset="link" onPress={this.toDoList} text={'ToDoList'} />
+            <Text/>
+            <Button onPress={this.toDoList} style={CONTINUE} textStyle={CONTINUE_TEXT} text={'ToDoList'} />
           </View>
         </SafeAreaView>
       </View>

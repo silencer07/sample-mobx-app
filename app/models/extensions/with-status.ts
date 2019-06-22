@@ -1,7 +1,7 @@
-import { IStateTreeNode } from "mobx-state-tree"
-import { observable, IObservableValue } from "mobx"
+import { IStateTreeNode } from 'mobx-state-tree'
+import { observable, IObservableValue } from 'mobx'
 
-export type StatusType = "idle" | "pending" | "done" | "error"
+export type StatusType = 'idle' | 'pending' | 'done' | 'error'
 
 /**
  * Adds a status field to the model often for tracking api access.
@@ -28,18 +28,18 @@ export const withStatus = (self: IStateTreeNode) => {
   /**
    * The observable backing store for the status field.
    */
-  let status: IObservableValue<string> = observable.box("idle")
+  let status: IObservableValue<string> = observable.box('idle')
 
   return {
     views: {
       // a getter
-      get status() {
+      get status () {
         return status.get() as StatusType
       },
       // as setter
-      set status(value: StatusType) {
+      set status (value: StatusType) {
         status.set(value)
-      },
+      }
     },
     actions: {
       /**
@@ -47,9 +47,9 @@ export const withStatus = (self: IStateTreeNode) => {
        *
        * @param value The new status.
        */
-      setStatus(value: StatusType) {
+      setStatus (value: StatusType) {
         status.set(value)
-      },
-    },
+      }
+    }
   }
 }

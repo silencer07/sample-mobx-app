@@ -1,5 +1,5 @@
-import { ViewStyle, TextStyle } from "react-native"
-import { color, spacing } from "../../../theme"
+import { ViewStyle, TextStyle } from 'react-native'
+import { color, spacing } from '../../../theme'
 
 /**
  * The component will start off looking like this.
@@ -8,15 +8,15 @@ const BASE_VIEW: ViewStyle = {
   paddingVertical: spacing[2],
   paddingHorizontal: spacing[2],
   borderRadius: 4,
-  alignItems: "center",
-  flexDirection: "row",
+  alignItems: 'center',
+  flexDirection: 'row'
 }
 
 /**
  * All text will start off looking like this.
  */
 const BASE_TEXT: TextStyle = {
-  paddingHorizontal: spacing[3],
+  paddingHorizontal: spacing[3]
 }
 
 /**
@@ -29,11 +29,11 @@ export const viewPresets = {
    * A smaller piece of secondary information.
    */
   primary: { ...BASE_VIEW } as ViewStyle,
-  secondary: { ...BASE_VIEW, justifyContent: "center" } as ViewStyle,
+  secondary: { ...BASE_VIEW, justifyContent: 'center' } as ViewStyle
 }
 
 export const textPresets = {
-  primary: { ...BASE_TEXT, fontSize: 9, color: color.palette.white } as TextStyle,
+  primary: { ...BASE_TEXT, fontSize: 9, color: color.palette.white } as TextStyle
 }
 
 /**

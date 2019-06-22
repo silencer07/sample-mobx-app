@@ -1,10 +1,10 @@
-import * as React from "react"
-import { View } from "react-native"
-import { Text } from "../../../components/text"
-import { viewPresets } from "./to-do-cell.presets"
-import { ToDoCellProps } from "./to-do-cell.props"
-import { Checkbox } from "../../../components/checkbox"
-import { observer } from "mobx-react"
+import * as React from 'react'
+import { View } from 'react-native'
+import { Text } from '../../../components/text'
+import { viewPresets } from './to-do-cell.presets'
+import { ToDoCellProps } from './to-do-cell.props'
+import { Checkbox } from '../../../components/checkbox'
+import { observer } from 'mobx-react'
 
 /**
  * Stateless functional component for your needs
@@ -13,9 +13,9 @@ import { observer } from "mobx-react"
  */
 @observer
 export class ToDoCell extends React.Component<ToDoCellProps, null> {
-  render() {
+  render () {
     // grab the props
-    const { preset = "primary", style: styleOverride, todo, onToggle, ...rest } = this.props
+    const { preset = 'primary', style: styleOverride, todo, onToggle, ...rest } = this.props
 
     // assemble the style
     const viewPresetToUse = viewPresets[preset] || viewPresets.primary

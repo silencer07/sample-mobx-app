@@ -1,13 +1,15 @@
-import { Instance, SnapshotOut, types } from "mobx-state-tree"
-import { NavigationStoreModel } from "../../navigation/navigation-store"
-import { ToDoListStoreModel } from "../to-do-list-store/to-do-list-store"
+import { Instance, SnapshotOut, types } from 'mobx-state-tree'
+import { NavigationStoreModel } from '../../navigation/navigation-store'
+import { ToDoListStoreModel } from '../to-do-list-store/to-do-list-store'
 
 /**
  * An RootStore model.
  */
-export const RootStoreModel = types.model("RootStore").props({
+// @ts-ignore
+const defaultTodoList: ToDoListStoreModel = {}
+export const RootStoreModel = types.model('RootStore').props({
   navigationStore: types.optional(NavigationStoreModel, {}),
-  toDoStore: types.optional(ToDoListStoreModel, {}),
+  toDoStore: types.optional(ToDoListStoreModel, defaultTodoList)
 })
 
 /**

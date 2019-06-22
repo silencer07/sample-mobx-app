@@ -1,12 +1,12 @@
-import { onSnapshot } from "mobx-state-tree"
-import { RootStore, RootStoreModel } from "./root-store"
-import { Environment } from "../environment"
-import * as storage from "../../utils/storage"
+import { onSnapshot } from 'mobx-state-tree'
+import { RootStore, RootStoreModel } from './root-store'
+import { Environment } from '../environment'
+import * as storage from '../../utils/storage'
 
 /**
  * The key we'll be saving our state as within async storage.
  */
-const ROOT_STATE_STORAGE_KEY = "root"
+const ROOT_STATE_STORAGE_KEY = 'root'
 
 /**
  * Setup the environment that all the models will be sharing.
@@ -15,7 +15,7 @@ const ROOT_STATE_STORAGE_KEY = "root"
  * of the models that get created later. This is how we loosly couple things
  * like events between models.
  */
-export async function createEnvironment() {
+export async function createEnvironment () {
   const env = new Environment()
   await env.setup()
   return env
@@ -24,7 +24,7 @@ export async function createEnvironment() {
 /**
  * Setup the root state.
  */
-export async function setupRootStore() {
+export async function setupRootStore () {
   let rootStore: RootStore
   let data: any
 
@@ -34,7 +34,7 @@ export async function setupRootStore() {
     // load data from storage
     data = (await storage.load(ROOT_STATE_STORAGE_KEY)) || {}
     rootStore = RootStoreModel.create(data, env)
-  } catch(e) {
+  } catch (e) {
     // if there's any problems loading, then let's at least fallback to an empty state
     // instead of crashing.
     rootStore = RootStoreModel.create({}, env)

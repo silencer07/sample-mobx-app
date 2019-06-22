@@ -1,9 +1,9 @@
-import { ApisauceInstance, create, ApiResponse } from "apisauce"
-import { getGeneralApiProblem } from "./todo-api-problem"
-import { ApiConfig, DEFAULT_API_CONFIG } from "./todo-api-config"
-import * as Types from "./todo-api.types"
-import { isNil } from "ramda"
-import { ToDoSnapshot } from "../../models/to-do/to-do"
+import { ApisauceInstance, create, ApiResponse } from 'apisauce'
+import { getGeneralApiProblem } from './todo-api-problem'
+import { ApiConfig, DEFAULT_API_CONFIG } from './todo-api-config'
+import * as Types from './todo-api.types'
+import { isNil } from 'ramda'
+import { ToDoSnapshot } from '../../models/to-do/to-do'
 
 /**
  * Manages all requests to the API.
@@ -24,7 +24,7 @@ export class ToDoApi {
    *
    * @param config The configuration to use.
    */
-  constructor(config: ApiConfig = DEFAULT_API_CONFIG) {
+  constructor (config: ApiConfig = DEFAULT_API_CONFIG) {
     this.config = config
   }
 
@@ -35,16 +35,15 @@ export class ToDoApi {
    *
    * Be as quick as possible in here.
    */
-  setup() {
+  setup () {
     // construct the apisauce instance
     try {
-
       this.apisauce = create({
         baseURL: this.config.url,
         timeout: this.config.timeout,
         headers: {
-          Accept: "application/json",
-        },
+          Accept: 'application/json'
+        }
       })
     } catch (e) {
       console.tron.log(e.message)
@@ -54,7 +53,7 @@ export class ToDoApi {
   /**
    * Gets a list of repos.
    */
-  async getTodos(completed?: boolean): Promise<Types.GetToDosResult> {
+  async getTodos (completed?: boolean): Promise<Types.GetToDosResult> {
     // make the api call
     const params = isNil(completed) ? {} : { completed }
     const response: ApiResponse<any> = await this.apisauce.get(`/todos`, params)
@@ -68,9 +67,9 @@ export class ToDoApi {
     // transform the data into the format we are expecting
     try {
       const todos: ToDoSnapshot[] = response.data
-      return { kind: "ok", todos }
+      return { kind: 'ok', todos }
     } catch {
-      return { kind: "bad-data" }
+      return { kind: 'bad-data' }
     }
   }
 }
