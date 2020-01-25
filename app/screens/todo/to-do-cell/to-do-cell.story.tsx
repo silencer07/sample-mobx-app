@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react-native'
 import { StoryScreen, Story, UseCase } from '../../../../storybook/views'
 import { ToDoCell } from './'
 import { ToDoModel } from '../../../models/to-do/to-do'
-import { Wallpaper } from '../../shared/wallpaper'
+import { Wallpaper } from '../../../components/wallpaper'
 
 const todo = ToDoModel.create({ id: 1, title: 'Do all the things!' })
 
