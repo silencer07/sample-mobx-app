@@ -5,9 +5,9 @@ import { ToDoCell } from './'
 import { ToDoModel } from '../../../models/to-do/to-do'
 import { Wallpaper } from '../../../components/wallpaper'
 
-const todo = ToDoModel.create({ id: 1, title: 'Do all the things!' })
+const todo = ToDoModel.create({ id: 1, title: 'Do all the things!', isComplete: false })
 
-storiesOf('ToDoCell')
+storiesOf('ToDoCell', module)
   .addDecorator(fn => <StoryScreen>{fn()}</StoryScreen>)
   .add('Style Presets', () => (
     <Story>
