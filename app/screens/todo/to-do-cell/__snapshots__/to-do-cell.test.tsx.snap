@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ToDoCell /> Title is null 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "borderRadius": 4,
+      "flexDirection": "row",
+      "paddingHorizontal": 8,
+      "paddingVertical": 8,
+    }
+  }
+>
+  <Checkbox
+    value={false}
+  />
+  <Text
+    text="Untitled"
+  />
+</View>
+`;
+
+exports[`<ToDoCell /> Toggle todo complete 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "borderRadius": 4,
+      "flexDirection": "row",
+      "paddingHorizontal": 8,
+      "paddingVertical": 8,
+    }
+  }
+>
+  <Checkbox
+    value={true}
+  />
+  <Text
+    text="Do all the things!"
+  />
+</View>
+`;
+
+exports[`<ToDoCell /> primary style preset 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "borderRadius": 4,
+      "flexDirection": "row",
+      "paddingHorizontal": 8,
+      "paddingVertical": 8,
+    }
+  }
+>
+  <Checkbox
+    value={false}
+  />
+  <Text
+    text="Do all the things!"
+  />
+</View>
+`;
+
+exports[`<ToDoCell /> secondary style preset 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "borderRadius": 4,
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "paddingHorizontal": 8,
+      "paddingVertical": 8,
+    }
+  }
+>
+  <Checkbox
+    value={false}
+  />
+  <Text
+    text="Do all the things!"
+  />
+</View>
+`;

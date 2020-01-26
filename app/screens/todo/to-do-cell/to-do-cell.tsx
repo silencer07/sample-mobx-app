@@ -18,7 +18,7 @@ export const ToDoCell: React.FunctionComponent<ToDoCellProps> = observer(({ pres
   return (
     <View style={viewStyle} {...rest} >
       <Checkbox onToggle={onToggle} value={todo.isComplete} />
-      <Text text={todo.title} />
+      <Text text={todo.title || 'Untitled'} />
     </View>
   )
 })
